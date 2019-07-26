@@ -56,10 +56,9 @@
                 <h2 class="mb-5">Recommendation Events</h2>
             </div>
         </div>
-
         <div class="site-block-retro d-block d-md-flex">
             @foreach($cobas1 as $coba1)
-            @endforeach
+
             <a href="{{route('events.show', ['id' => $coba1->id])}}" class="col1 unit-9 no-height" data-aos="fade-up" data-aos-delay="100">
                 @if($coba1->cover)
                     <div class="image" style="background-image: url('{{asset('storage/' . $coba1->cover)}}');"></div>
@@ -69,12 +68,12 @@
                 <span>{{$coba1->date}} &mdash; {{$coba1->time}}</span>
                 </div>
             </a>
-
+            @endforeach
             <div class="col2 ml-auto">
             @foreach($cobas2 as $coba2)
-            @endforeach
+
             <a href="{{route('events.show', ['id' => $coba2->id])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
-                @if($coba1->cover)
+                @if($coba2->cover)
                     <div class="image" style="background-image: url('{{asset('storage/' . $coba2->cover)}}');"></div>
                 @endif
                 <div class="unit-9-content">
@@ -82,9 +81,9 @@
                     <span>{{$coba2->date}} &mdash; {{$coba2->time}}</span>
                 </div>
             </a>
-
-            @foreach($cobas3 as $coba3)
             @endforeach
+            @foreach($cobas3 as $coba3)
+
             <a href="{{route('events.show', ['id' => $coba3->id])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
                 @if($coba3->cover)
                     <div class="image" style="background-image: url('{{asset('storage/' . $coba3->cover)}}');"></div>
@@ -94,7 +93,7 @@
                     <span>{{$coba3->date}} &mdash; {{$coba3->time}}</span>
                 </div>
             </a>
-
+            @endforeach
           </div>
 
         </div>

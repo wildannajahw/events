@@ -32,6 +32,9 @@
 .tols{
     margin: 10%;
 }
+.padbawah{
+    margin-bottom: 10%;
+}
 .box{
     border: #666666 solid 1px;
 

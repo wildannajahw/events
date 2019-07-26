@@ -84,7 +84,15 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                    <a class="dropdown-item" href="/users">
+                                        {{ __('Manage Users') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/categories">
+                                        {{ __('Manage Categories') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/events">
+                                        {{ __('Manage Events') }}
+                                    </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

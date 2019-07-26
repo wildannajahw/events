@@ -1,13 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.global')
 
 @section('content')
-<div class="container">
+<div class="container kons padbawah">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header bg-tai">{{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body bg-tai">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
