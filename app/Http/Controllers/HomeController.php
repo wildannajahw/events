@@ -23,10 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $events = \App\Event::orderBy('id', 'DESC')->paginate(4);
+        $events = \App\Event::inRandomOrder()->paginate(4);
+        $articles = \App\Article::inRandomOrder()->paginate(3);
         $cobas1 = \App\Event::inRandomOrder()->paginate(1);
         $cobas2 = \App\Event::inRandomOrder()->paginate(1);
         $cobas3 = \App\Event::inRandomOrder()->paginate(1);
-        return view('welcome', ['events' => $events, 'cobas1' => $cobas1, 'cobas2' => $cobas2, 'cobas3' => $cobas3]);
+        return view('welcome', ['articles' => $articles, 'events' => $events, 'cobas1' => $cobas1, 'cobas2' => $cobas2, 'cobas3' => $cobas3]);
     }
 }

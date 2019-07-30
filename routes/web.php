@@ -16,10 +16,11 @@ Route::match(["GET", "POST"], "/register", function(){
     })->name("register");
 Route::get('/', function () {
     $events = \App\Event::inRandomOrder()->paginate(4);
+    $articles = \App\Article::inRandomOrder()->paginate(3);
     $cobas1 = \App\Event::inRandomOrder()->paginate(1);
     $cobas2 = \App\Event::inRandomOrder()->paginate(1);
     $cobas3 = \App\Event::inRandomOrder()->paginate(1);
-    return view('welcome', ['events' => $events, 'cobas1' => $cobas1, 'cobas2' => $cobas2, 'cobas3' => $cobas3]);
+    return view('welcome', ['articles' => $articles, 'events' => $events, 'cobas1' => $cobas1, 'cobas2' => $cobas2, 'cobas3' => $cobas3]);
 });
 
 
@@ -27,7 +28,10 @@ Route::get('/event', function () {
     $events = \App\Event::All();
     return view('event', ['events' => $events]);
 });
-
+Route::get('/article', function () {
+    $articles = \App\Article::All();
+    return view('article', ['articles' => $articles]);
+});
 
 Route::resource("users", "UserController");
 
@@ -43,3 +47,10 @@ Route::get('/events/trash', 'EventController@trash')->name('events.trash');
 Route::post('/events/{id}/restore', 'EventController@restore')->name('events.restore');
 Route::delete('/events/{id}/delete-permanent', 'EventController@deletePermanent')->name('events.delete-permanent');
 Route::resource('events', 'EventController');
+
+Route::get('/articles/trash', 'ArticleController@trash')->name('articles.trash');
+Route::post('/articles/{id}/restore', 'ArticleController@restore')->name('articles.restore');
+Route::delete('/articles/{id}/delete-permanent', 'ArticleController@deletePermanent')->name('articles.delete-permanent');
+Route::resource('articles', 'ArticleController');
+
+Route::resource('anothers', 'AnotherController');

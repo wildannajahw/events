@@ -1,6 +1,6 @@
 @extends('layouts.global')
 
-@section('title') Events list @endsection
+@section('title') articles list @endsection
 
 @section('content')
 <div class="container kons">
@@ -15,7 +15,7 @@
       <div class="row">
           <div class="col-md-6">
             <form
-              action="{{route('events.index')}}"
+              action="{{route('articles.index')}}"
             >
 
             <div class="input-group">
@@ -30,10 +30,10 @@
           <div class="col-md-6">
             <ul class="nav nav-pills card-header-pills">
               <li class="nav-item">
-                <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'events' ? 'active' : ''}}" href="{{route('events.index')}}">Active</a>
+                <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'articles' ? 'active' : ''}}" href="{{route('articles.index')}}">Active</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{Request::path() == 'events/trash' ? 'active' : ''}}" href="{{route('events.trash')}}">Trash</a>
+                <a class="nav-link {{Request::path() == 'articles/trash' ? 'active' : ''}}" href="{{route('articles.trash')}}">Trash</a>
               </li>
             </ul>
           </div>
@@ -44,9 +44,9 @@
       <div class="row mb-3">
         <div class="col-md-12 text-right">
           <a
-            href="{{route('events.create')}}"
+            href="{{route('articles.create')}}"
             class="btn btn-primary"
-          >Create event</a>
+          >Create article</a>
         </div>
       </div>
 
@@ -55,47 +55,43 @@
           <tr>
             <th><b>Cover</b></th>
             <th><b>Name</b></th>
-            <th><b>Location</b></th>
             <th><b>Categories</b></th>
-            <th><b>Stock</b></th>
             <th><b>Date</b></th>
             <th><b>Action</b></th>
           </tr>
         </thead>
         <tbody>
-          @foreach($events as $event)
+          @foreach($articles as $article)
             <tr>
               <td>
-                @if($event->cover)
-                  <img src="{{asset('storage/' . $event->cover)}}" width="96px"/>
+                @if($article->cover)
+                  <img src="{{asset('storage/' . $article->cover)}}" width="96px"/>
                 @endif
               </td>
-              <td>{{$event->name}}</td>
-              <td>{{$event->location}}</td>
+              <td>{{$article->name}}</td>
               <td>
                 <ul class="pl-3">
-                @foreach($event->categories as $category)
+                @foreach($article->categories as $category)
                   <li>{{$category->name}}</li>
                 @endforeach
                 </ul>
               </td>
-              <td>{{$event->stock}}</td>
-              <td>{{$event->date}}</td>
+              <td>{{$article->date}}</td>
               <td>
                   <a
-                   href="{{route('events.edit', ['id' => $event->id])}}"
+                   href="{{route('articles.edit', ['id' => $article->id])}}"
                    class="btn btn-info btn-sm"
                   > Edit </a>
                   <a
-                   href="{{route('events.show', ['id' => $event->id])}}"
+                   href="{{route('articles.show', ['id' => $article->id])}}"
                    class="btn btn-info btn-sm"
                   > Show </a>
 
                   <form
                     method="POST"
                     class="d-inline"
-                    onsubmit="return confirm('Move event to trash?')"
-                    action="{{route('events.destroy', ['id' => $event->id ])}}"
+                    onsubmit="return confirm('Move article to trash?')"
+                    action="{{route('articles.destroy', ['id' => $article->id ])}}"
                   >
 
                   @csrf
@@ -118,7 +114,7 @@
         <tfoot>
           <tr>
             <td colspan="10">
-              {{$events->appends(Request::all())->links()}}
+              {{$articles->appends(Request::all())->links()}}
             </td>
           </tr>
         </tfoot>
