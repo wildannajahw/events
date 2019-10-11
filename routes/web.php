@@ -53,4 +53,6 @@ Route::post('/articles/{id}/restore', 'ArticleController@restore')->name('articl
 Route::delete('/articles/{id}/delete-permanent', 'ArticleController@deletePermanent')->name('articles.delete-permanent');
 Route::resource('articles', 'ArticleController');
 
+
+Route::get('/another/{id}', 'AnotherController@showevent')->name('anothers.showevent');
 Route::resource('anothers', 'AnotherController');

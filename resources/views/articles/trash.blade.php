@@ -1,6 +1,6 @@
 @extends('layouts.global')
 
-@section('title') Trashed events @endsection
+@section('title') Trashed articles @endsection
 
 @section('content')
 
@@ -15,7 +15,7 @@
       <div class="row">
           <div class="col-md-6">
             <form
-              action="{{route('events.index')}}"
+              action="{{route('articles.index')}}"
             >
 
             <div class="input-group">
@@ -30,11 +30,11 @@
           <div class="col-md-6">
             <ul class="nav nav-pills card-header-pills">
               <li class="nav-item">
-                <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'events' ? 'active' : ''}}" href="{{route('events.index')}}">All</a>
+                <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'articles' ? 'active' : ''}}" href="{{route('articles.index')}}">All</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link {{Request::path() == 'events/trash' ? 'active' : ''}}" href="{{route('events.trash')}}">Trash</a>
+                <a class="nav-link {{Request::path() == 'articles/trash' ? 'active' : ''}}" href="{{route('articles.trash')}}">Trash</a>
               </li>
             </ul>
           </div>
@@ -45,9 +45,9 @@
       <div class="row mb-3">
         <div class="col-md-12 text-right">
           <a
-            href="{{route('events.create')}}"
+            href="{{route('articles.create')}}"
             class="btn btn-primary"
-          >Create event</a>
+          >Create article</a>
         </div>
       </div>
 
@@ -65,28 +65,28 @@
           </tr>
         </thead>
         <tbody>
-        @foreach($events as $event)
+        @foreach($articles as $article)
             <tr>
               <td>
-                @if($event->cover)
-                  <img src="{{asset('storage/' . $event->cover)}}" width="96px"/>
+                @if($article->cover)
+                  <img src="{{asset('storage/' . $article->cover)}}" width="96px"/>
                 @endif
               </td>
-              <td>{{$event->name}}</td>
-              <td>{{$event->organizer}}</td>
+              <td>{{$article->name}}</td>
+              <td>{{$article->organizer}}</td>
               <td>
                 <ul class="pl-3">
-                @foreach($event->categories as $category)
+                @foreach($article->categories as $category)
                   <li>{{$category->name}}</li>
                 @endforeach
                 </ul>
               </td>
-              <td>{{$event->stock}}</td>
-              <td>{{$event->price}}</td>
+              <td>{{$article->stock}}</td>
+              <td>{{$article->price}}</td>
               <td>
                   <form
                     method="POST"
-                    action="{{route('events.restore', ['id' => $event->id])}}"
+                    action="{{route('articles.restore', ['id' => $article->id])}}"
                     class="d-inline"
                   >
 
@@ -97,9 +97,9 @@
 
                   <form
                     method="POST"
-                    action="{{route('events.delete-permanent', ['id' => $event->id])}}"
+                    action="{{route('articles.delete-permanent', ['id' => $article->id])}}"
                     class="d-inline"
-                    onsubmit="return confirm('Delete this event permanently?')"
+                    onsubmit="return confirm('Delete this article permanently?')"
                   >
 
                   @csrf
@@ -114,7 +114,7 @@
         <tfoot>
           <tr>
             <td colspan="10">
-              {{$events->appends(Request::all())->links()}}
+              {{$articles->appends(Request::all())->links()}}
             </td>
           </tr>
         </tfoot>

@@ -31,7 +31,7 @@
             <div class="row">
             @foreach($events as $event)
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                <a href="{{route('anothers.show', ['id' => $event->id])}}" class="unit-9">
+                <a href="{{route('anothers.showevent', ['id' => $event->id])}}" class="unit-9">
                 @if($event->cover)
                 <div class="image" style="background-image: url('{{asset('storage/' . $event->cover)}}');"></div>
                 @endif
@@ -59,7 +59,7 @@
         <div class="site-block-retro d-block d-md-flex">
             @foreach($cobas1 as $coba1)
 
-            <a href="{{route('anothers.show', ['id' => $coba1->id])}}" class="col1 unit-9 no-height" data-aos="fade-up" data-aos-delay="100">
+            <a href="{{route('anothers.showevent', ['id' => $coba1->id])}}" class="col1 unit-9 no-height" data-aos="fade-up" data-aos-delay="100">
                 @if($coba1->cover)
                     <div class="image" style="background-image: url('{{asset('storage/' . $coba1->cover)}}');"></div>
                 @endif
