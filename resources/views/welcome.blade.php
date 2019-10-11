@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade-up" data-aos-delay="400">
-                <h1 class="mb-4">RAYAKAN LIBURAN TANPA KHAWATIR</h1>
+                <!-- <h1 class="mb-4">RAYAKAN LIBURAN TANPA KHAWATIR</h1> -->
             </div>
             </div>
         </div>

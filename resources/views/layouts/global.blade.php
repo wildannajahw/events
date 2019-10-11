@@ -51,7 +51,7 @@
         <div class="container py-1">
             <div class="row align-items-center">
                 <div class="col-8 col-md-8 col-lg-4">
-                    <h1 class="mb-0"><a href="{{ url('/') }}" class="text-white h2 mb-0"><strong>Events<span class="text-primary">.</span></strong></a></h1>
+                    <h1 class="mb-0"><a href="{{ url('/') }}" class="text-white h2 mb-0"><strong>Jerbee<span class="text-primary">.</span></strong></a></h1>
                 </div>
                 <div class="col-4 col-md-4 col-lg-8">
                     <nav class="site-navigation text-right text-md-right" role="navigation">
@@ -62,6 +62,7 @@
                             </li>
 
                             <li><a href="{{ url('/event') }}">Events</a></li>
+                            <li><a href="{{ url('/article') }}">Articles</a></li>
 
                             @guest
                             <li class="nav-item">
@@ -127,7 +128,7 @@
           <div class="col-lg-4">
             <div class="mb-5">
               <h3 class="footer-heading mb-4">About Events</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque, consequatur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
+              <p>PT. Jerbee Indonesia merupakan sebuah perusahaan IT yang digagas oleh kumpulan / komunitas praktisi IT dari berbagai kalangan dan sebelumnya merupakan tenaga-tenaga kreatif profesional yang sudah aktif terlibat dalam industri Teknologi Informasi.</p>
             </div>
             <div class="row">
               <div class="col-md-12">
