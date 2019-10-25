@@ -72,7 +72,15 @@
                     </div>
 
                 </div>
+                <div class="col-sm-12">
+                    <input value="{{old('link') ? old('link') : $event->link}}" type="text" class="form-control noborder input-title nospace {{$errors->first('link') ? "is-invalid" : ""}} " name="link" placeholder="Event link*">
+                    <div class="invalid-feedback">
+                    {{$errors->first('link')}}
+                    </div>
+                    <br>
+                </div>
             </div>
+            
 
         </div>
         <div style="margin: 10%;">

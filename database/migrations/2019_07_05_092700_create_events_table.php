@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('date');
             $table->string('time');
             $table->string('location');
+            $table->string('link');
             $table->integer('stock')->default(0)->unsigned();
             $table->integer('created_by');
             $table->integer('updated_by')->nullable();

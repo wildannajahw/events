@@ -72,7 +72,7 @@
             <div class="col2 ml-auto">
             @foreach($cobas2 as $coba2)
 
-            <a href="{{route('anothers.show', ['id' => $coba2->id])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
+            <a href="{{route('anothers.showevent', ['id' => $coba2->id])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
                 @if($coba2->cover)
                     <div class="image" style="background-image: url('{{asset('storage/' . $coba2->cover)}}');"></div>
                 @endif
@@ -84,7 +84,7 @@
             @endforeach
             @foreach($cobas3 as $coba3)
 
-            <a href="{{route('anothers.show', ['id' => $coba3->id])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
+            <a href="{{route('anothers.showevent', ['id' => $coba3->id])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
                 @if($coba3->cover)
                     <div class="image" style="background-image: url('{{asset('storage/' . $coba3->cover)}}');"></div>
                 @endif
@@ -126,7 +126,7 @@
     </div>
 
 
-    <div class="site-section">
+    <!-- <div class="site-section">
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto">
@@ -256,7 +256,7 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 

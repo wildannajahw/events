@@ -47,6 +47,7 @@ class EventController extends Controller
         $new_event->description = $request->get('description');
         $new_event->time = $request->get('time');
         $new_event->location = $request->get('location');
+        $new_event->link = $request->get('link');
         $new_event->date = $request->get('date');
         $new_event->stock = $request->get('stock');
         $new_event->created_by = \Auth::user()->id;
@@ -101,6 +102,7 @@ class EventController extends Controller
         $event = \App\Event::findOrFail($id);
         $event->name = $request->get('name');
         $event->location = $request->get('location');
+        $event->link = $request->get('link');
         $event->description = $request->get('description');
         $event->date = $request->get('date');
         $event->time = $request->get('time');

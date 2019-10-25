@@ -84,6 +84,7 @@
                 {!! $event->description !!}
             </div>
             <br><br>
+            <a href="{!! $event->link !!}" class="btn btn-primary">Daftar</a>
         </div>
     </div>
 </form>
