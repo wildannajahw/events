@@ -30,39 +30,6 @@
         <input {{$user->status == "INACTIVE" ? "checked" : ""}} value="INACTIVE" type="radio" class="form-control" id="inactive" name="status"> <label for="inactive">Inactive</label>
         <br><br>
 
-        <label for="">Roles</label>
-        <br>
-        <input
-        type="checkbox"
-        {{in_array("ADMIN", json_decode($user->roles)) ? "checked" : ""}}
-        name="roles[]"
-        class="form-control {{$errors->first('roles') ? "is-invalid" : "" }}"
-        id="ADMIN"
-        value="ADMIN">
-        <label for="ADMIN">Administrator</label>
-
-        <input
-        type="checkbox"
-        {{in_array("STAFF", json_decode($user->roles)) ? "checked" : ""}}
-        name="roles[]"
-        class="form-control {{$errors->first('roles') ? "is-invalid" : "" }}"
-        id="STAFF"
-        value="STAFF">
-        <label for="STAFF">Staff</label>
-
-        <input
-        type="checkbox"
-        {{in_array("CUSTOMER", json_decode($user->roles)) ? "checked" : ""}}
-        name="roles[]"
-        class="form-control {{$errors->first('roles') ? "is-invalid" : "" }}"
-        id="CUSTOMER"
-        value="CUSTOMER">
-        <label for="CUSTOMER">Customer</label>
-
-        <div class="invalid-feedback">
-        {{$errors->first('roles')}}
-        </div>
-        <br>
 
         <br>
         <label for="phone">Phone number</label>

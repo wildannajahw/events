@@ -81,13 +81,13 @@
               </td>
               <td>{{$event->stock}}</td>
               <td>{{$event->date}}</td>
-              <td>
+              <td> 
                   <a
-                   href="{{route('events.edit', ['id' => $event->id])}}"
+                   href="{{route('events.edit', ['id' => Crypt::encrypt($event->id)])}}"
                    class="btn btn-info btn-sm"
                   > Edit </a>
                   <a
-                   href="{{route('events.show', ['id' => $event->id])}}"
+                   href="{{route('events.show', ['id' => Crypt::encrypt($event->id)])}}"
                    class="btn btn-info btn-sm"
                   > Show </a>
 

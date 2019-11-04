@@ -59,7 +59,6 @@ class UserController extends Controller
         $validation = \Validator::make($request->all(),[
             "name" => "required|min:5|max:100",
             "username" => "required|min:5|max:20|unique:users",
-            "roles" => "required",
             "phone" => "required|digits_between:10,12",
             "address" => "required|min:20|max:200",
             "avatar" => "required",
@@ -71,7 +70,6 @@ class UserController extends Controller
         $new_user = new \App\User;
         $new_user->name = $request->get('name');
         $new_user->username = $request->get('username');
-        $new_user->roles = json_encode($request->get('roles'));
         $new_user->address = $request->get('address');
         $new_user->phone = $request->get('phone');
         $new_user->email = $request->get('email');
@@ -117,13 +115,11 @@ class UserController extends Controller
     {
         \Validator::make($request->all(), [
             "name" => "required|min:5|max:100",
-            "roles" => "required",
             "phone" => "required|digits_between:10,12",
             "address" => "required|min:20|max:200",
         ])->validate();
         $user = \App\User::findOrFail($id);
         $user->name = $request->get('name');
-        $user->roles = json_encode($request->get('roles'));
         $user->address = $request->get('address');
         $user->phone = $request->get('phone');
         $user->status = $request->get('status');

@@ -74,6 +74,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
+        $id = \Crypt::decrypt($id);
         $event = \App\Event::findOrFail($id);
         return view('events.show', ['event' => $event]);
     }
@@ -86,6 +87,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
+        $id = \Crypt::decrypt($id);
         $event = \App\Event::findOrFail($id);
         return view('events.edit', ['event' => $event]);
     }
@@ -99,6 +101,7 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $id = \Crypt::decrypt($id);
         $event = \App\Event::findOrFail($id);
         $event->name = $request->get('name');
         $event->location = $request->get('location');

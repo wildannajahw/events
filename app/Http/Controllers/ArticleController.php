@@ -71,6 +71,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+        $id = \Crypt::decrypt($id);
         $article = \App\Article::findOrFail($id);
         return view('articles.show', ['article' => $article]);
     }
@@ -83,6 +84,7 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
+        $id = \Crypt::decrypt($id);
         $article = \App\Article::findOrFail($id);
         return view('articles.edit', ['article' => $article]);
     }
@@ -96,6 +98,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $id = \Crypt::decrypt($id);
         $article = \App\Article::findOrFail($id);
         $article->name = $request->get('name');
         $article->description = $request->get('description');

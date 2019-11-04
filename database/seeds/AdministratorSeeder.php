@@ -15,7 +15,6 @@ class AdministratorSeeder extends Seeder
         $administrator->username = "administrator";
         $administrator->name = "Site Administrator";
         $administrator->email = "administrator@laravel.test";
-        $administrator->roles = json_encode(["ADMIN"]);
         $administrator->password = \Hash::make("admin");
         $administrator->save();
         $this->command->info("User Admin berhasil diinsert");

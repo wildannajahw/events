@@ -15,7 +15,6 @@ class PenyesuaianTableUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string("username")->unique();
-            $table->string("roles");
             $table->text("address")->nullable();
             $table->string("phone")->nullable();
             $table->string("avatar")->nullable();

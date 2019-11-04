@@ -27,18 +27,6 @@
         {{$errors->first('username')}}
       </div>
       <br>
-
-      <label for="">Roles</label>
-      <br>
-      <input class="form-control {{$errors->first('roles') ? "is-invalid" : "" }}" type="checkbox" name="roles[]" id="ADMIN" value="ADMIN"> <label for="ADMIN">Administrator</label>
-      <input class="form-control {{$errors->first('roles') ? "is-invalid" : "" }}" type="checkbox" name="roles[]" id="STAFF" value="STAFF"> <label for="STAFF">Staff</label>
-      <input class="form-control {{$errors->first('roles') ? "is-invalid" : "" }}" type="checkbox" name="roles[]" id="CUSTOMER" value="CUSTOMER"> <label for="CUSTOMER">Customer</label>
-      <div class="invalid-feedback">
-        {{$errors->first('roles')}}
-      </div>
-      <br>
-
-      <br>
       <label for="phone">Phone number</label>
       <br>
       <input value="{{old('phone')}}" type="text" name="phone" class="form-control {{$errors->first('phone') ? "is-invalid" : ""}} ">

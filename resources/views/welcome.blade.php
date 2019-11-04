@@ -31,7 +31,7 @@
             <div class="row">
             @foreach($events as $event)
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                <a href="{{route('anothers.showevent', ['id' => $event->id])}}" class="unit-9">
+                <a href="{{route('anothers.showevent', ['id' => Crypt::encrypt($event->id)])}}" class="unit-9">
                 @if($event->cover)
                 <div class="image" style="background-image: url('{{asset('storage/' . $event->cover)}}');"></div>
                 @endif
@@ -59,7 +59,7 @@
         <div class="site-block-retro d-block d-md-flex">
             @foreach($cobas1 as $coba1)
 
-            <a href="{{route('anothers.showevent', ['id' => $coba1->id])}}" class="col1 unit-9 no-height" data-aos="fade-up" data-aos-delay="100">
+            <a href="{{route('anothers.showevent', ['id' => Crypt::encrypt($coba1->id)])}}" class="col1 unit-9 no-height" data-aos="fade-up" data-aos-delay="100">
                 @if($coba1->cover)
                     <div class="image" style="background-image: url('{{asset('storage/' . $coba1->cover)}}');"></div>
                 @endif
@@ -72,7 +72,7 @@
             <div class="col2 ml-auto">
             @foreach($cobas2 as $coba2)
 
-            <a href="{{route('anothers.showevent', ['id' => $coba2->id])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
+            <a href="{{route('anothers.showevent', ['id' => Crypt::encrypt($coba2->id)])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
                 @if($coba2->cover)
                     <div class="image" style="background-image: url('{{asset('storage/' . $coba2->cover)}}');"></div>
                 @endif
@@ -84,7 +84,7 @@
             @endforeach
             @foreach($cobas3 as $coba3)
 
-            <a href="{{route('anothers.showevent', ['id' => $coba3->id])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
+            <a href="{{route('anothers.showevent', ['id' => Crypt::encrypt($coba3->id)])}}" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
                 @if($coba3->cover)
                     <div class="image" style="background-image: url('{{asset('storage/' . $coba3->cover)}}');"></div>
                 @endif
@@ -111,13 +111,13 @@
         @foreach($articles as $article)
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-            <a href="{{route('anothers.show', ['id' => $article->id])}}">
+            <a href="{{route('anothers.show', ['id' => Crypt::encrypt($article->id)])}}">
             @if($article->cover)
                 <img src="{{asset('storage/' . $article->cover)}}" alt="Image" class="img-fluid">
             @endif</a>
             <div class="p-4 bg-white">
               <span class="d-block text-secondary small text-uppercase">{{$article->date}}</span>
-              <h2 class="h5 text-black mb-3"><a href="{{route('articles.show', ['id' => $article->id])}}">{{$article->name}}</a></h2>
+              <h2 class="h5 text-black mb-3"><a href="{{route('articles.show', ['id' => Crypt::encrypt($article->id)])}}">{{$article->name}}</a></h2>
             </div>
           </div>
         </div>

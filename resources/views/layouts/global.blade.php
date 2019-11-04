@@ -80,7 +80,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    @if(Auth::user()->roles == "[\"ADMIN\"]")
                                     <a class="dropdown-item" href="/users">
                                         {{ __('Manage Users') }}
                                     </a>
@@ -93,7 +92,6 @@
                                     <a class="dropdown-item" href="/articles">
                                         {{ __('Manage Articles') }}
                                     </a>
-                                    @endif
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

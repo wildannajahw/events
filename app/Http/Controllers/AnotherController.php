@@ -45,12 +45,14 @@ class AnotherController extends Controller
      */
     public function show($id)
     {
+        $id = \Crypt::decrypt($id);
         $article = \App\Article::findOrFail($id);
         return view('articles.show', ['article' => $article]);
     }
 
     public function showevent($id)
     {
+        $id = \Crypt::decrypt($id);
         $event = \App\Event::findOrFail($id);
         return view('events.show', ['event' => $event]);
     }
