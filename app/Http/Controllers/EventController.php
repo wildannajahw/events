@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use \Crypt;
 
 use Illuminate\Http\Request;
 
@@ -121,7 +122,7 @@ class EventController extends Controller
         $event->updated_by = \Auth::user()->id;
         $event->save();
         $event->categories()->sync($request->get('categories'));
-        return redirect()->route('events.edit', ['id'=>$event->id])->with('status', 'Event successfully updated');
+        return redirect()->route('events.edit', ['id'=>Crypt::encrypt($event->id)])->with('status', 'Event successfully updated');
     }
 
     /**
@@ -157,7 +158,6 @@ class EventController extends Controller
           return redirect()->route('events.trash')->with('status', 'Event is not in trash!')->with('status_type', 'alert');
         } else {
           $event->categories()->detach();
-          $event->orders()->detach();
           $event->forceDelete();
 
           return redirect()->route('events.trash')->with('status', 'Event permanently deleted!');

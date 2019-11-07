@@ -23,7 +23,7 @@
             <div class="row">
             @foreach($articles as $article)
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100" style="padding-bottom:5%;">
-                <a href="{{route('anothers.show', ['id' => $article->id])}}" class="unit-9">
+                <a href="{{route('anothers.show', ['id' => Crypt::encrypt($article->id)])}}" class="unit-9">
                 @if($article->cover)
                 <div class="image" style="background-image: url('{{asset('storage/' . $article->cover)}}');"></div>
                 @endif

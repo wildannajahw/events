@@ -23,7 +23,7 @@
             <div class="row">
             @foreach($events as $event)
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100" style="padding-bottom:5%;">
-                <a href="{{route('events.show', ['id' => $event->id])}}" class="unit-9">
+                <a href="{{route('events.show', ['id' => Crypt::encrypt($event->id)])}}" class="unit-9">
                 @if($event->cover)
                 <div class="image" style="background-image: url('{{asset('storage/' . $event->cover)}}');"></div>
                 @endif
