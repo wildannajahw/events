@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \Crypt;
 
 class ArticleController extends Controller
 {
@@ -43,6 +44,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $validation = \Validator::make($request->all(),[
+            "cover" => "required",
+            "name" => "required",
+            "catagories" => "required",
+            "description" => "required",
+            "date" => "required",
+        ])->validate();
+
         $new_article = new \App\Article;
         $new_article->name = $request->get('name');
         $new_article->description = $request->get('description');
@@ -114,7 +123,7 @@ class ArticleController extends Controller
         $article->updated_by = \Auth::user()->id;
         $article->save();
         $article->categories()->sync($request->get('categories'));
-        return redirect()->route('articles.edit', ['id'=>$article->id])->with('status', 'article successfully updated');
+        return redirect()->route('articles.edit', ['id'=>Crypt::encrypt($article->id)])->with('status', 'article successfully updated');
     }
 
     /**

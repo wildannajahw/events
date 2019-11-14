@@ -28,13 +28,7 @@ class PenyesuaianTableUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn("username");
-            $table->dropColumn("roles");
-            $table->dropColumn("address");
-            $table->dropColumn("phone");
-            $table->dropColumn("avatar");
-            $table->dropColumn("status");
-        });
+        
+        Schema::dropIfExists('users');
     }
 }

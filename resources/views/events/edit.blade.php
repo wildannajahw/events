@@ -2,7 +2,7 @@
 @section('title') Edit event @endsection
 @section('content')
 <form
-    enctype="multipart/form-data" method="POST" action="{{route('events.update', ['id' => $event->id])}}">
+    enctype="multipart/form-data" method="POST" action="{{route('events.update', ['id' => Crypt::encrypt($event->id)])}}">
     @csrf
     <input type="hidden" name="_method" value="PUT">
     <div class="container kons">

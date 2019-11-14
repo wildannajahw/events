@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use \Crypt;
 
 use Illuminate\Http\Request;
 
@@ -42,6 +43,18 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $validation = \Validator::make($request->all(),[
+            
+            "name" => "required",
+            "description" => "required",
+            "time" => "required",
+            "location" => "required",
+            "link" => "required",
+            "date" => "required",
+            "stock" => "required",
+            "cover" => "required",
+        ])->validate();
+
         $new_event = new \App\Event;
         $new_event->name = $request->get('name');
         $new_event->description = $request->get('description');
@@ -121,7 +134,7 @@ class EventController extends Controller
         $event->updated_by = \Auth::user()->id;
         $event->save();
         $event->categories()->sync($request->get('categories'));
-        return redirect()->route('events.edit', ['id'=>$event->id])->with('status', 'Event successfully updated');
+        return redirect()->route('events.edit', ['id'=>Crypt::encrypt($event->id)])->with('status', 'Event successfully updated');
     }
 
     /**
@@ -157,7 +170,6 @@ class EventController extends Controller
           return redirect()->route('events.trash')->with('status', 'Event is not in trash!')->with('status_type', 'alert');
         } else {
           $event->categories()->detach();
-          $event->orders()->detach();
           $event->forceDelete();
 
           return redirect()->route('events.trash')->with('status', 'Event permanently deleted!');

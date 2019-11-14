@@ -14,9 +14,9 @@
         @endif
         <div class="continaer box shadow-lg rounded">
 
-            <input type="file" class="cover {{$errors->first('cover') ? "is-invalid" : ""}} " name="cover">
+            <input type="file" class="form-control {{$errors->first('cover') ? "is-invalid" : ""}} " name="cover">
             <div class="invalid-feedback">
-            {{$errors->first('cover')}}
+                {{$errors->first('cover')}}
             </div>
             <div class="tols">
                 <div class="col-sm-12">

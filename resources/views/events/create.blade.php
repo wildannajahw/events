@@ -13,23 +13,29 @@
             </div>
         @endif
         <div class="continaer box shadow-lg rounded">
-
-            <input type="file" class="cover {{$errors->first('cover') ? "is-invalid" : ""}} " name="cover">
-            <div class="invalid-feedback">
-            {{$errors->first('cover')}}
-            </div>
+            
+            
+      <br>
+      <input id="cover" name="cover" type="file" class="form-control {{$errors->first('cover') ? "is-invalid" : ""}}">
+      <div class="invalid-feedback">
+        {{$errors->first('cover')}}
+      </div>
             <div class="tols">
                 <div class="col-sm-12">
                     <input value="{{old('name')}}" type="text" class="form-control noborder input-title nospace {{$errors->first('name') ? "is-invalid" : ""}} " name="name" placeholder="Event name*">
                     <div class="invalid-feedback">
-                    {{$errors->first('name')}}
+                        {{$errors->first('name')}}
                     </div>
                     <br>
                 </div>
                 <div class="container-fluid row nospace">
                     <div class="col-sm-12">
                         <label for="categories">Categories: </label>
-                        <select name="categories[]" multiple id="categories" class="form-control"></select>
+                        <select name="categories[]" multiple id="categories" class="form-control {{$errors->first('categories') ? "is-invalid" : ""}}"></select>
+                        
+                <div class="invalid-feedback">
+                    {{$errors->first('categories')}}
+                </div>
                     </div>
                 </div>
                 <br>
@@ -43,6 +49,12 @@
                 </div>
                 <div class="container-fluid row nospace">
                     <div class="col-sm-6">
+                        <input id="timepicker" width="100%" value="{{old('time')}}" class="form-control {{$errors->first('time') ? "is-invalid" : ""}} " name="time">
+                        <script>
+                            $('#timepicker').timepicker({
+                                uiLibrary: 'bootstrap4'
+                            });
+                        </script>
                         <input id="datepicker" width="100%" value="{{old('date')}}" class="form-control {{$errors->first('date') ? "is-invalid" : ""}} " name="date">
                         <script>
                             $('#datepicker').datepicker({
@@ -50,12 +62,8 @@
                             });
                         </script>
                         <br>
-                        <input id="timepicker" width="100%" value="{{old('time')}}" class="form-control {{$errors->first('time') ? "is-invalid" : ""}} " name="time">
-                        <script>
-                            $('#timepicker').timepicker({
-                                uiLibrary: 'bootstrap4'
-                            });
-                        </script>
+                        
+                        
                     </div>
                     <div class="col-sm-6">
                         <input value="{{old('stock')}}" type="number" class="form-control {{$errors->first('stock') ? "is-invalid" : ""}} " id="stock" name="stock" min=0 value=0 placeholder="Stock">
